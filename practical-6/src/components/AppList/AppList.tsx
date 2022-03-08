@@ -34,17 +34,15 @@ export const AppList = () => {
   
    const fetchUsers = async (pageNumber: number) => {
         await fetch(`https://reqres.in/api/users?page=${pageNumber}`)
-          .then((Data) => { 
-              if(Data.ok) 
-              return Data.json();
-              throw new Error('something went wrong while requesting posts');
+          .then((res) => { 
+              if(res.ok) 
+              return res.json();
                })
-          .then((Data: json) => {
-           // console.log(Data);
-            setUsers(Data.data);
-            setUserDetails(Data);
+          .then((res: json) => {
+            setUsers(res.data);
+            setUserDetails(res);
           })
-          .catch((error) => setError(error.message));
+          .catch((error) => setError("Something went wrong!"));
       };
     
       useEffect(() => {

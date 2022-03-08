@@ -5,10 +5,8 @@ interface PageProps {
 }
 const Pagination = (props: PageProps) => {
   return (
-    <div className="Pagination-body" >
     <div className="Pagination">
       {props.paginationItems}
-    </div>
     </div>
   );
 };

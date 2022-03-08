@@ -1,21 +1,14 @@
-.Pagination-body {
-  align-self: center;
-}
 .Pagination {
     display: inline-flex;
-  }
-  .Pagination span {
-    border-top: 1px solid rgb(6, 42, 244);
-    border-left: 1px solid rgb(6, 42, 244);
-    border-bottom: 1px solid rgb(6, 42, 244);
-    border-right: 1px solid rgb(6, 42, 244);
-    padding: 6px 12px;
-    cursor: pointer;
-  }
-  .Pagination span:hover {
-    background-color: rgba(25, 0, 255, 0.2);
-  }
-  .Pagination .active {
-    background-color:rgb(1, 11, 69)
-  }
-  
+    align-self: center;
+}
+
+.Pagination span {
+  border-style: inset;
+  border-color: rgb(143, 128, 198); 
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.Pagination span:hover {
+  background-color: rgba(25, 0, 255, 0.2);
+}
