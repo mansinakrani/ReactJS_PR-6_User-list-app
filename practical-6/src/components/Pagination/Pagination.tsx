@@ -1,4 +1,4 @@
-import "./Pagination.css"
+import "./Pagination.css";
 
 interface PageProps {
   paginationItems: JSX.Element[] | undefined
