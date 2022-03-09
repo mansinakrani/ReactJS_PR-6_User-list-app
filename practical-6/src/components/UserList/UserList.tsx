@@ -24,11 +24,7 @@ interface Props {
   export const UserList = (props: Props) => { 
       
     return (
-    <div className='box'>
-    
-        <div>
             <div className='content'>
-                <div className='container'>
                 <div className='user-list'>
                     <table>
                         <thead>
@@ -38,9 +34,10 @@ interface Props {
                               <th style={{ width: "30%" }}>Access</th>
                             </tr>
                         </thead>
-                                <tbody>
-                                {props.users.map((user, index) => {
-                                return (
+                        
+                        <tbody>
+                            {props.users.map((user, index) => {
+                              return (
                                 <>
                                 {index === 0 && (
                                 <tr key={user.id}>
@@ -84,7 +81,7 @@ interface Props {
                                 onMouseLeave={() => {
                                     props.handleMouseOver(null);
                                 }}
-                              >
+                                >
                                 <td>
                                     <div className='user'>
                                         <img src={user.avatar} alt='avatar'/>
@@ -107,7 +104,6 @@ interface Props {
                                 <td>
                                     <div className='user-access'>
                                         <select value={user.access}>
-                                            <option value="Owner">Owner</option>
                                             <option value="Manager">Manager</option>
                                             <option value="Read">Read</option>
                                         </select>
@@ -123,9 +119,10 @@ interface Props {
                                 </tr>
                                 )}
                                 </>
-                                );
-                                })}
+                              );
+                            })}
                             </tbody>
+
                             <tfoot>
                                 <tr>
                                     <td colSpan={4} align="center" className="Pagination-body">
@@ -135,15 +132,6 @@ interface Props {
                             </tfoot>
                     </table>
                 </div>
-
-                </div>
-
             </div>
-        </div>
-
- 
-</div>
     );
 };
-
-//export default UserList;

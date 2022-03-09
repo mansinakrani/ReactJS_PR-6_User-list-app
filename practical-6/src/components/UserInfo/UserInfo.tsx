@@ -1,5 +1,3 @@
-import React from 'react'
-//import "../App.css";
 import "./UserInfo.css"
 
 interface userprops {
@@ -11,6 +9,7 @@ const UserInfo = (props: userprops) => {
     <>
     {props.info !== null && (
     <div className='user-profile'>
+
         <div className='user-details'>
             <div className='image'>
                 <img src={props.info.avatar} alt="avatar"/>
@@ -40,8 +39,8 @@ const UserInfo = (props: userprops) => {
                     <p>Monthly Clicks</p>
                 </div>
             </div>
-
         </div>
+
     </div>
     )}
     </>

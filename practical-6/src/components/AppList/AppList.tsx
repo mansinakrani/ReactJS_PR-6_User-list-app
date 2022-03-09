@@ -1,7 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { useEffect, useState } from 'react'
-//import "./AppList.css";
-
+import { useEffect, useState } from 'react'
+import "./App.css";
 import UserInfo from '../UserInfo/UserInfo';
 import { UserList } from '../UserList/UserList';
 
@@ -14,7 +12,7 @@ interface user {
     status: string;
     access: string;
     icon: string;
-  }
+}
 
 type json = {
     page: number;
@@ -30,8 +28,6 @@ export const AppList = () => {
     const [paginationItems, setPaginationItems] = useState<JSX.Element[]>();
     const [error, setError] = useState('');
 
-
-  
    const fetchUsers = async (pageNumber: number) => {
         await fetch(`https://reqres.in/api/users?page=${pageNumber}`)
           .then((res) => { 
@@ -42,7 +38,7 @@ export const AppList = () => {
             setUsers(res.data);
             setUserDetails(res);
           })
-          .catch((error) => setError("Something went wrong!"));
+          .catch((error: string) => setError("Something went wrong!"));
       };
     
       useEffect(() => {
@@ -72,16 +68,18 @@ export const AppList = () => {
     
     
     return (
-        <><div>
-        {/* <UserList/> component which contains user list */}
-        <UserList users={users} handleMouseOver={(user) => { setUser(user); } } paginationItems={paginationItems} />
-        {/* <UserInfo/> component which contains user profile */}
-        <div className='user-info'>
+      <>
+          <div className="App">
+          {/* <UserList/> component which contains user list */}
+          <div className='userList'>
+           <UserList users={users} handleMouseOver={(user) => { setUser(user); } } paginationItems={paginationItems} />
+           </div>
+          {/* <UserInfo/> component which contains user profile */}
+          <div className='user-info'>
           <UserInfo info={user}  />
-        </div>
-        </div>
-  </>
+          </div>
+          </div>
+      </>
     );
 };
 
-//export default AppList;

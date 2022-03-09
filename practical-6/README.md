@@ -18,7 +18,7 @@ npm start
 ```
 
 ## Demo
-[Website-URL](https://react-m-pr-6.web.app/)
+[Website-URL](https://react-mn-pr-6.web.app/)
 [Image](https://github.com/mansinakrani/ReactJS_PR-6_User-list-app/blob/Reactjs_pr-6/practical-6/reactjs-6.png)
 
 ## Repo Link
