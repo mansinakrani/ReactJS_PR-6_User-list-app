@@ -4,7 +4,7 @@ import "./App.css";
 import UserInfo from '../UserInfo/UserInfo';
 import { UserList } from '../UserList/UserList';
 import { useDispatch } from 'react-redux';
-import { listUsers } from '../redux/actions/UserListAction';
+//import { listUsers } from '../redux/actions/UserListAction';
 
 interface user {
     id: number;
@@ -27,7 +27,7 @@ type json = {
 export const AppList = () => {
     const dispatch = useDispatch();
     const [user, setUser] = useState<user | null>(null);
-    const [users, setUsers] = useState<[]>([]); // for fetch the data
+    const [users, listUsers] = useState<[]>([]); // for fetch the data
     const [userDetails, setUserDetails] = useState<json>({} as json);
     const [paginationItems, setPaginationItems] = useState<JSX.Element[]>();
     const [error, setError] = useState('');
