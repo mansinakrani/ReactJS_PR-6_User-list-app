@@ -1,7 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from 'react'
 import "./App.css";
 import UserInfo from '../UserInfo/UserInfo';
 import { UserList } from '../UserList/UserList';
+import { useDispatch } from 'react-redux';
+import { listUsers } from '../redux/actions/UserListAction';
 
 interface user {
     id: number;
@@ -22,6 +25,7 @@ type json = {
     data: [];
   };
 export const AppList = () => {
+    const dispatch = useDispatch();
     const [user, setUser] = useState<user | null>(null);
     const [users, setUsers] = useState<[]>([]); // for fetch the data
     const [userDetails, setUserDetails] = useState<json>({} as json);
@@ -29,13 +33,14 @@ export const AppList = () => {
     const [error, setError] = useState('');
 
    const fetchUsers = async (pageNumber: number) => {
+
         await fetch(`https://reqres.in/api/users?page=${pageNumber}`)
           .then((res) => { 
               if(res.ok) 
               return res.json();
                })
           .then((res: json) => {
-            setUsers(res.data);
+            dispatch(listUsers(res.data));
             setUserDetails(res);
           })
           .catch((error: string) => setError("Something went wrong!"));
@@ -43,7 +48,7 @@ export const AppList = () => {
     
       useEffect(() => {
         fetchUsers(1);
-      }, []);
+      },[]);
 
     useEffect(() => {
         const pageNumbers: number[] = [];
