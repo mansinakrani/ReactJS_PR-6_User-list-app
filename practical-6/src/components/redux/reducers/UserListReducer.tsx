@@ -1,6 +1,4 @@
 import { ActionTypes } from "../constants/action-types";
-//import { Userdetails } from "../../components/UserDetails";
-//import { LIST_USERS } from "../constants/action-types";
 
 const initialState = {
  users: [
@@ -15,7 +13,6 @@ const initialState = {
       icon: "",
     },
   ],
-  /*users: { Userdetails }*/
 };
 
 const userReducer = (state = initialState, action: { type: any; payload: any; }) => {

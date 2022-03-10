@@ -4,7 +4,6 @@ import "./App.css";
 import UserInfo from '../UserInfo/UserInfo';
 import { UserList } from '../UserList/UserList';
 import { useDispatch } from 'react-redux';
-//import { listUsers } from '../redux/actions/UserListAction';
 
 interface user {
     id: number;
