@@ -1,9 +1,16 @@
 import { ActionTypes } from "../constants/action-types";
 
 
-export const listUsers = (users: string | []) => {
+export const listUsers = (users: string | [] | number) => {
   return {
     type: ActionTypes.LIST_USERS,
-    payload: { users },
+    payload: users,
+  };
+};
+
+export const page = (pageNumber: number) => {
+  return {
+    type: ActionTypes.PAGE,
+    payload: pageNumber,
   };
 };

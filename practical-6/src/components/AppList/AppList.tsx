@@ -3,7 +3,9 @@ import { useEffect, useState } from 'react'
 import "./App.css";
 import UserInfo from '../UserInfo/UserInfo';
 import { UserList } from '../UserList/UserList';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { listUsers , page} from '../redux/actions/UserListAction';
+import { RootState } from '../redux/reducers';
 
 interface user {
     id: number;
@@ -25,8 +27,9 @@ type json = {
   };
 export const AppList = () => {
     const dispatch = useDispatch();
+    const {listUsers, page} = useSelector((state: RootState) => { return state.allUsers.users;});
     const [user, setUser] = useState<user | null>(null);
-    const [users, listUsers] = useState<[]>([]); // for fetch the data
+    const [users, setUsers] = useState<[]>([]); // for fetch the data
     const [userDetails, setUserDetails] = useState<json>({} as json);
     const [paginationItems, setPaginationItems] = useState<JSX.Element[]>();
     const [error, setError] = useState('');
@@ -39,14 +42,17 @@ export const AppList = () => {
               return res.json();
                })
           .then((res: json) => {
-            dispatch(listUsers(res.data));
-            setUserDetails(res);
+           // console.log(res.data);
+           setUserDetails(res);
+           dispatch(setUsers(res.data));
+            
+            
           })
-          .catch((error: string) => setError("Something went wrong!"));
+          .catch((error) => {console.log(error);});
       };
     
       useEffect(() => {
-        fetchUsers(1);
+        (fetchUsers(1));
       },[]);
 
     useEffect(() => {
@@ -67,6 +73,7 @@ export const AppList = () => {
             </span>
           );
         });
+        console.log(items);
         setPaginationItems(items);
       }, [userDetails]);
     

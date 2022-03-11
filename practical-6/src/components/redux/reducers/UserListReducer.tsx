@@ -1,18 +1,8 @@
 import { ActionTypes } from "../constants/action-types";
 
 const initialState = {
- users: [
-    {
-      id: 0,
-      avatar: "",
-      first_name: "", 
-      last_name: "",
-      email: "", 
-      status: "",
-      access: "",
-      icon: "",
-    },
-  ],
+  users: [],
+  pageNumber: 0,
 };
 
 const userReducer = (state = initialState, action: { type: any; payload: any; }) => {
@@ -22,7 +12,11 @@ const userReducer = (state = initialState, action: { type: any; payload: any; })
         ...state,
         users: action.payload,
       };
-
+      case ActionTypes.PAGE:
+        return {
+          ...state,
+          pageNumber: state.pageNumber + 1,
+        };
     default:
       return state;
   }

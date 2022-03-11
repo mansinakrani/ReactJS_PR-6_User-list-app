@@ -1,9 +1,9 @@
 /**** User List*****/
 .content {
-    max-width: 100%;
-    margin: 0 auto;
     display: grid;
     background-color: white;
+    position: relative;
+    margin: 50px;
     padding: 20px 30px;
     justify-content: space-between;
   }
@@ -58,12 +58,20 @@ th,td {
     font-weight: bold;
   }
   
-  .user-status select {
+.user-status select {
     padding: 10px;
     border-radius: 10%;
-  }
-  .user-access select {
+    background-color: lightsteelblue;
+}
+
+.user-access select {
     padding: 10px;
     border-radius: 10%;
-  }
+    background-color: lightsteelblue;
+}
+
+.user-icon:hover {
+  color: rgb(235, 59, 59);
+}
   
+
