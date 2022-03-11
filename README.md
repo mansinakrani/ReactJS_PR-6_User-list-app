@@ -23,7 +23,7 @@ npm start
 # Website URLs
 Deployed on different platforms :-
 [Firebase CLI](https://react-mn-pr-6.web.app/)
-[netlify]()
+[netlify](https://gifted-einstein-618031.netlify.app/)
 
 ## Repo Link
 [Practical - 6](https://github.com/mansinakrani/ReactJS_PR-6_User-list-app.git)
