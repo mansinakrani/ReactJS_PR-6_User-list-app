@@ -3,6 +3,7 @@ import "./UserList.css"
 import Pagination from "../Pagination/Pagination";
 
 
+
 interface user {
     id: number;
     avatar: string;
@@ -21,7 +22,7 @@ interface Props {
 }
 
   export const UserList = (props: Props) => { 
-      //console.log(props.paginationItems);
+      
     return (
             <div className='content'>
                 <div className='user-list'>
@@ -35,13 +36,11 @@ interface Props {
                         </thead>
                         
                         <tbody>
-                            {/*{console.log("uuu",props.users)}*/}
-                            {props.users.map((user, index) => {
+                            {props.users?.map((user, index) => {
                               return (
                                 <>
                                 {index === 0 && (
-
-                                <tr key={user.id} >
+                                <tr key={user.id}>
                                     <td>
                                         <div className='user'>
                                             <img src={user.avatar} alt="avatar" />

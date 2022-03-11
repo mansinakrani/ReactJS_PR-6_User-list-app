@@ -1,8 +1,8 @@
 import { ActionTypes } from "../constants/action-types";
 
+
 const initialState = {
-  users: [],
-  pageNumber: 0,
+    users: [ ],
 };
 
 const userReducer = (state = initialState, action: { type: any; payload: any; }) => {
@@ -12,11 +12,7 @@ const userReducer = (state = initialState, action: { type: any; payload: any; })
         ...state,
         users: action.payload,
       };
-      case ActionTypes.PAGE:
-        return {
-          ...state,
-          pageNumber: state.pageNumber + 1,
-        };
+
     default:
       return state;
   }
